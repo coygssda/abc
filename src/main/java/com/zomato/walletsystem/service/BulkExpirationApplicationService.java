@@ -2,7 +2,6 @@ package com.zomato.walletsystem.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,7 @@ public class BulkExpirationApplicationService {
 		
 		walletListModel = template.findById(walletListModel.getWalletListId(), WalletListModel.class);
 
+		
 		for(String id:walletListModel.getWalletIds()) {
 			
 			WalletEntityModel walletEntityModel = template.findById(id, WalletEntityModel.class);

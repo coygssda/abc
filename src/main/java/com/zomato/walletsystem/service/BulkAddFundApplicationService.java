@@ -28,19 +28,23 @@ public class BulkAddFundApplicationService {
 
 	@Autowired
 	private ExpiryFundModel expiryFundModel;
-
+	
 	@Autowired
 	private WalletListModel walletListModel;
+	
 
+	
 	public void bulkAdd(List<BulkAddFundModel> bulkAddModel) throws WalletException {
 
 		walletListModel = template.findById(walletListModel.getWalletListId(), WalletListModel.class);
 
+		
 		for (BulkAddFundModel bulkAddFundModel : bulkAddModel) {
 
-			if (!walletListModel.getWalletIds().contains(bulkAddFundModel.getId())) {
+			if(!walletListModel.getWalletIds().contains(bulkAddFundModel.getId())) {
 				throw new DocumentDoesNotExistException();
-			} 
+
+			}
 			
 			else 
 			{
